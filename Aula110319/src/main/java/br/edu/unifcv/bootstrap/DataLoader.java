@@ -5,16 +5,21 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.unifcv.model.Aluno;
+import br.edu.unifcv.model.Professor;
+import br.edu.unifcv.service.map.ProfessorMapService;
+import br.edu.unifcv.service.map.AlunoMapService;
 
 @Component
-public class DataLoader implements CommandLineRunner{
+public class DataLoader implements CommandLineRunner {
 
 	@Autowired
-	br.edu.unifcv.service.map.AlunoMapService AlunoMapService;
+	AlunoMapService alunoMapService;
+	
+	@Autowired
+	ProfessorMapService professorMapService;
 	
 	@Override
-	public void run(String... args) throws Exception {
-		
+	public void run(String... args) throws Exception {		
 		inserirDados();
 	}
 
@@ -26,7 +31,14 @@ public class DataLoader implements CommandLineRunner{
 		aluno.setIdade(34);
 		aluno.setRegistroAluno("123456");
 		aluno.setSemestre("6° Semestre");
-		AlunoMapService.save(aluno);
+		alunoMapService.save(aluno);
+		
+		Professor professor = new Professor();
+		professor.setNome("Andre");
+		professor.setIdade(35);
+		professor.setSobreNome("Oliveira");
+		
+		professorMapService.save(professor);
 		
 	}
 
