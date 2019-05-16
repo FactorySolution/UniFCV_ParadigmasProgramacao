@@ -1,4 +1,5 @@
 Requisitos para fazer o trabalho
+* No máximo 3 pessoas por grupo
 * Criar os controllers de Autor e Livro
 * Criar as camadas de Serviço de amba as partes
 * Os retornos dos controllers devem retornar os códigos HTTP corretos.
